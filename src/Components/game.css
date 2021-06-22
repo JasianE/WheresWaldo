@@ -1,0 +1,27 @@
+.game{
+    height: 1346px;
+    padding-top: 50px;
+}
+h2{
+    align-self: center;
+}
+#nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    background-color: rgb(38, 73, 50);
+    text-align: center;
+    overflow: hidden;
+}
+h1{
+    align-self: center;
+    color:white;
+}
+.timer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 1500px;
+}
+

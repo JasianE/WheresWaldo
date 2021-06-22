@@ -1,0 +1,103 @@
+.character{
+    height: 200px;
+    width: 200px;
+    border-radius: 10%;
+}
+#box{
+    width: 500px;
+    height:250px;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: rgba(73, 7, 7, 0.4);
+}
+#box2{
+    width: 500px;
+    height:250px;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    background-color: rgb(235, 0, 0, 0.4);
+    margin-top: 10px;
+    margin-left: 20px;
+}
+#box3{
+    width: 500px;
+    height:250px;
+    border-color: black;
+    border-style: solid;
+    padding: 20px;
+    background-color: rgb(255, 6, 143, 0.4);
+    margin-top: 20px;
+    margin-left: 20px;
+}
+h2{
+    float:left;
+}
+.butt{
+    position: absolute;
+    top: 390px;
+    left: 650px;
+    height: 300px;
+    width: 400px;
+    font-size: 123px;
+    border: none;
+    padding: 15px, 32px;
+    text-decoration: none;
+    color: white;
+    background-color: #008CBA;
+}
+html{
+    background-color: coral;
+}
+.displayText{
+    align-self: center;
+    justify-self: center;
+}
+.buttonBox{
+    position: relative;
+    margin-left: 100%;
+    margin-top: -20%;
+    border-style: solid;
+    height: 128px;
+}
+.buttonBox2{
+    position: relative;
+    margin-left: 100%;
+    margin-top: -20%;
+    border-style: solid;
+    height: 85px;
+}
+.buttonBox3{
+    position: relative;
+    margin-left: 100%;
+    margin-top: -20%;
+    border-style: solid;
+    height: 42px;
+}
+.zoidberg{
+    height: 43px;
+    width: 80px;
+    border: none;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(235, 0, 0);
+}
+.dwight{
+    height: 43px;
+    width: 80px;
+    border: none;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(107, 8, 8);
+}
+.patrick{
+    height: 43px;
+    width: 80px;
+    border: none;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(173, 60, 122);
+}
