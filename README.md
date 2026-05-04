@@ -4,6 +4,8 @@ A browser-based "Where's Waldo" game built as part of The Odin Project. The goal
 
 ## Overview
 
+Live Link: https://memory-game-zre1.vercel.app/
+
 This project focuses on handling user interaction with images, tracking click positions, and validating selections. It emphasizes working with coordinates, state management, and dynamic UI updates.
 
 ## Tech Stack
