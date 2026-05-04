@@ -4,19 +4,18 @@ import config from './Firebase/config'
 import humanReadable from './humanReadable'
 import checkValidity from './checkValidity'
 
+if(!Firebase.apps.length){
+    Firebase.initializeApp(config)
+} else {
+    Firebase.app()
+}
+const db = Firebase.firestore()
+
 function Endpage(props){
     const [registered, setRegistered] = useState(false)
     const [highScores, setHighScores] = useState([])
     const [shouldAsk, setShouldAsk] = useState(false)
     const [notDone, setNotDone] = useState(true)
-    //For soe reason sometimes i already have an initializedapp and sometimes i dont so idont know 
-    if(!Firebase.apps.length){
-        Firebase.initializeApp(config)
-    }
-    else{
-        Firebase.app()
-    }
-    const db = Firebase.firestore()
 
     useEffect(() => {
         async function badCode(){
@@ -32,8 +31,7 @@ function Endpage(props){
             setShouldAsk(validity)
         }
         badCode()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [props.time])
 
     function storeHighScore(userName, score){
         if(registered === false){
