@@ -67,12 +67,6 @@ function Game(){
             }
         })(thing)
     }
-    
-    function isDone(){
-        if(Zoidberg === true && Dwight === true && Patrick === true){
-            return true
-        }
-    }
 
     //I subtract here because otherwise the marker is slightly off click area...
     let x = clickPosition.x -50
@@ -80,7 +74,7 @@ function Game(){
 
     //Time
     useEffect(() => {
-        if(isDone()){
+        if(Zoidberg === true && Dwight === true && Patrick === true){
             setCompleted(true)
         }
         else{
@@ -89,7 +83,7 @@ function Game(){
             }, 1000)
             return () => clearTimeout(bruh)
         }
-    }, [time])
+    }, [time, Zoidberg, Dwight, Patrick])
 
     return(
         <div>

@@ -4,36 +4,34 @@ import config from './Firebase/config'
 import humanReadable from './humanReadable'
 import checkValidity from './checkValidity'
 
+if(!Firebase.apps.length){
+    Firebase.initializeApp(config)
+} else {
+    Firebase.app()
+}
+const db = Firebase.firestore()
+
 function Endpage(props){
     const [registered, setRegistered] = useState(false)
     const [highScores, setHighScores] = useState([])
     const [shouldAsk, setShouldAsk] = useState(false)
     const [notDone, setNotDone] = useState(true)
-    //For soe reason sometimes i already have an initializedapp and sometimes i dont so idont know 
-    if(!Firebase.apps.length){
-        Firebase.initializeApp(config)
-    }
-    else{
-        Firebase.app()
-    }
-    const db = Firebase.firestore()
 
-    async function badCode(){
-        //I need to touch up on async aka i need to learn async
-        let scores = []
-        const response = db.collection('highscores')
-        const data = await response.get();
-        data.docs.map(function(key){
-            scores.push(key.data().users[0].score)
-            setHighScores([...highScores, key.data().users[0]])
-        })
-        const lowest = Math.max(...scores)
-        const validity = checkValidity(props.time, lowest)
-        setShouldAsk(validity)
-    }
     useEffect(() => {
+        async function badCode(){
+            let scores = []
+            const response = db.collection('highscores')
+            const data = await response.get();
+            data.docs.forEach(function(key){
+                scores.push(key.data().users[0].score)
+                setHighScores(h => [...h, key.data().users[0]])
+            })
+            const lowest = Math.max(...scores)
+            const validity = checkValidity(props.time, lowest)
+            setShouldAsk(validity)
+        }
         badCode()
-    }, [])
+    }, [props.time])
 
     function storeHighScore(userName, score){
         if(registered === false){
