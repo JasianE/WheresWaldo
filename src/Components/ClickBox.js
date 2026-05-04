@@ -23,7 +23,7 @@ function ClickBox(props){
     function determiner(){
         const derekJeter = [props.Zoidberg, props.Patrick, props.Dwight];
         let trues = 0;
-        derekJeter.map(function(key){
+        derekJeter.forEach(function(key){
             if(!key){
                 trues = trues + 1;
             }

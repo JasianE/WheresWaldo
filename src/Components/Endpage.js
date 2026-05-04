@@ -18,21 +18,21 @@ function Endpage(props){
     }
     const db = Firebase.firestore()
 
-    async function badCode(){
-        //I need to touch up on async aka i need to learn async
-        let scores = []
-        const response = db.collection('highscores')
-        const data = await response.get();
-        data.docs.map(function(key){
-            scores.push(key.data().users[0].score)
-            setHighScores([...highScores, key.data().users[0]])
-        })
-        const lowest = Math.max(...scores)
-        const validity = checkValidity(props.time, lowest)
-        setShouldAsk(validity)
-    }
     useEffect(() => {
+        async function badCode(){
+            let scores = []
+            const response = db.collection('highscores')
+            const data = await response.get();
+            data.docs.forEach(function(key){
+                scores.push(key.data().users[0].score)
+                setHighScores(h => [...h, key.data().users[0]])
+            })
+            const lowest = Math.max(...scores)
+            const validity = checkValidity(props.time, lowest)
+            setShouldAsk(validity)
+        }
         badCode()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     function storeHighScore(userName, score){
